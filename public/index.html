@@ -6,7 +6,7 @@
 
 <title>Anacrusis — We make apps.</title>
 <meta name="description" content="Anacrusis is a software company. We build and own our own products. Founded by Owais Korejo." />
-<meta name="theme-color" content="#fafafa" />
+<meta name="theme-color" content="#061027" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Anacrusis" />
@@ -19,6 +19,9 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+<link rel="preload" as="image" href="/desktop.png" media="(min-width: 60.01rem)" />
+<link rel="preload" as="image" href="/phone.png" media="(max-width: 60rem)" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -26,6 +29,7 @@
 </head>
 
 <body>
+  <div class="stage" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
   <main class="shell">

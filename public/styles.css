@@ -188,7 +188,7 @@ a:hover > .arrow { transform: translate(1.5px, -1.5px); }
 
 .lede {
   margin: clamp(1.25rem, 2.5vh, 2rem) 0 0;
-  max-width: 34ch;
+  max-width: 58ch;
   font-size: clamp(1.05rem, 1.6vw, 1.5rem);
   font-weight: 500;
   line-height: 1.3;

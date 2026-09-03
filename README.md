@@ -49,6 +49,30 @@ instead. Swapping either image means re-checking its scrim.
 Stacking order: stage `z-index: 0` -> content `10` -> grain `50`.
 Grain and the entry animation are both disabled under `prefers-reduced-motion`.
 
+## Favicons
+
+Generated from `ta.png`, not used raw. The star only covers 61% of that file's
+frame, so used as-is it renders as a dot at tab size; the icons are cropped to
+1525x1525 centred (the star is dead-centre) so it fills ~80% of the tile, then
+stepped down 360 -> 96 -> 32/16 rather than resized in one jump, which keeps the
+thin points from disappearing. To regenerate after changing `ta.png`, repeat
+that crop-then-step sequence.
+
+## Star cursor
+
+Replaces the native cursor with a sparkle that eases toward the pointer instead
+of tracking it. Position and rotation are set on `.cursor` by script; hover and
+press scales live on the inner `svg`, because a CSS transform on the wrapper
+would be overwritten every frame.
+
+The lean angle is clamped to +/-22 degrees. It is derived from the gap between
+pointer and star, which reaches hundreds of px on a fast flick -- unclamped that
+value is read as degrees and spins the star through whole rotations.
+
+Off entirely for coarse pointers and for `prefers-reduced-motion`; `cursor: none`
+is scoped to a class the script adds, so if the script never runs the native
+cursor is left alone rather than hidden with no replacement.
+
 ## Content
 
 Founder, contact and product link live directly in `public/index.html` — there is no

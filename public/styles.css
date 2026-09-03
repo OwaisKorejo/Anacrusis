@@ -179,17 +179,11 @@ a:hover > .arrow { transform: translate(1.5px, -1.5px); }
 
 .hero h1 {
   margin: 0;
-  max-width: 22ch;
+  max-width: 18ch;
   font-size: clamp(2.75rem, 8.5vw, 7rem);
   font-weight: 600;
   line-height: 1.02;
   letter-spacing: -0.045em;
-}
-
-/* Second half of the headline, set one blank line below the first. */
-.hero h1 .also {
-  display: block;
-  margin-top: 1em;
 }
 
 .lede {
@@ -201,6 +195,11 @@ a:hover > .arrow { transform: translate(1.5px, -1.5px); }
   letter-spacing: -0.015em;
   color: var(--ink-45);
   text-wrap: balance;
+}
+
+/* The closing line, one blank line below the lede. */
+.artist {
+  margin-top: 1.3em;
 }
 
 /* ── Meta grid ─────────────────────────────────────────── */

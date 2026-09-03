@@ -193,7 +193,12 @@ a:hover > .arrow { transform: translate(1.5px, -1.5px); }
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: -0.015em;
-  color: var(--ink-45);
+  color: var(--ink);
+  /* Soft halo so the pure white lifts off the artwork rather than sitting flat. */
+  text-shadow:
+    0 0 1px rgba(255, 255, 255, 0.30),
+    0 0 12px rgba(255, 255, 255, 0.22),
+    0 0 34px rgba(255, 255, 255, 0.12);
   text-wrap: balance;
 }
 

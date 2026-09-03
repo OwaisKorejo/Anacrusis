@@ -262,47 +262,6 @@ a:hover > .arrow { transform: translate(1.5px, -1.5px); }
   .registered { display: none; }
 }
 
-/* ── Star cursor ───────────────────────────────────────── */
-
-/* Scoped to a class the script adds, so if JS never runs the native cursor
-   is left alone rather than hidden with nothing to replace it. */
-html.star-cursor,
-html.star-cursor * { cursor: none; }
-
-.cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 60;
-  width: 20px;
-  height: 20px;
-  margin: -10px 0 0 -10px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  will-change: transform;
-}
-
-.cursor.is-awake { opacity: 0.92; }
-
-.cursor svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: visible;                  /* keep the glow from clipping */
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.cursor path {
-  fill: #37b3fa;                      /* sampled from ta.png */
-  filter: drop-shadow(0 0 7px rgba(55, 179, 250, 0.55));
-}
-
-/* Position and spin live on the wrapper, scale on the inner svg — the script
-   owns the wrapper's transform, so a scale there would be overwritten. */
-.cursor.is-near  svg { transform: scale(1.9); }
-.cursor.is-press svg { transform: scale(0.72); }
-
 /* ── Focus & motion ────────────────────────────────────── */
 
 a:focus-visible {

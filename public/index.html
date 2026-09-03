@@ -31,11 +31,6 @@
 
 <body>
   <div class="stage" aria-hidden="true"></div>
-  <div class="cursor" aria-hidden="true">
-    <svg viewBox="0 0 24 24">
-      <path d="M12 0 Q12.8 11.2 24 12 Q12.8 12.8 12 24 Q11.2 12.8 0 12 Q11.2 11.2 12 0 Z"/>
-    </svg>
-  </div>
   <div class="grain" aria-hidden="true"></div>
 
   <main class="shell">
@@ -97,52 +92,6 @@
 
   <!-- Vercel Web Analytics. Served by the platform at /_vercel/insights/ once
        deployed; 404s locally, which is expected and harmless. -->
-  <script>
-  (function () {
-    // Real pointers only, and never over a reduced-motion preference — the
-    // whole effect is lag, so there is nothing left worth keeping without it.
-    if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    var el = document.querySelector(".cursor");
-    if (!el) return;
-    // Only hide the native cursor once we know we can draw a replacement.
-    document.documentElement.classList.add("star-cursor");
-
-    var tx = innerWidth / 2, ty = innerHeight / 2;  // pointer
-    var x = tx, y = ty, spin = 0, awake = false;    // star
-
-    addEventListener("pointermove", function (e) {
-      tx = e.clientX; ty = e.clientY;
-      if (!awake) { x = tx; y = ty; awake = true; el.classList.add("is-awake"); }
-    }, { passive: true });
-
-    addEventListener("pointerdown", function () { el.classList.add("is-press"); });
-    addEventListener("pointerup",   function () { el.classList.remove("is-press"); });
-    document.addEventListener("mouseleave", function () { el.classList.remove("is-awake"); });
-    document.addEventListener("mouseenter", function () { if (awake) el.classList.add("is-awake"); });
-
-    Array.prototype.forEach.call(document.querySelectorAll("a"), function (a) {
-      a.addEventListener("mouseenter", function () { el.classList.add("is-near"); });
-      a.addEventListener("mouseleave", function () { el.classList.remove("is-near"); });
-    });
-
-    (function frame() {
-      // Ease toward the pointer instead of tracking it — this is the flow.
-      x += (tx - x) * 0.13;
-      y += (ty - y) * 0.13;
-      // Lean into the direction of travel, then settle back upright. The lean
-      // is clamped: the gap can be hundreds of px on a fast flick, and
-      // unclamped that reads as degrees and spins the star right round.
-      var lean = (tx - x) * 0.35;
-      lean = lean < -22 ? -22 : lean > 22 ? 22 : lean;
-      spin += (lean - spin) * 0.12;
-      el.style.transform = "translate3d(" + x + "px," + y + "px,0) rotate(" + spin + "deg)";
-      requestAnimationFrame(frame);
-    })();
-  })();
-  </script>
-
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

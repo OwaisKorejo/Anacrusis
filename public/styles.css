@@ -34,6 +34,42 @@ body {
   overflow-x: hidden;
 }
 
+/* ── Backdrop ──────────────────────────────────────────── */
+
+/* Record grooves, bleeding off the right edge. The SVG carries its own
+   left-to-right fade mask so the type always sits on clean ground. */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.grooves {
+  position: absolute;
+  top: 50%;
+  right: -20vmax;
+  width: 84vmax;
+  height: 84vmax;
+  transform: translateY(-50%);
+  opacity: 0.30;
+}
+
+/* Narrow screens: swing the record down into the corner so its dense
+   centre clears the text column. */
+@media (max-width: 60rem) {
+  .grooves {
+    top: auto;
+    bottom: -46vmax;
+    right: -46vmax;
+    width: 108vmax;
+    height: 108vmax;
+    transform: none;
+    opacity: 0.20;
+  }
+}
+
 /* ── Grain ─────────────────────────────────────────────── */
 
 .grain {

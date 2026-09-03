@@ -193,20 +193,21 @@ a:hover > .arrow { transform: translate(1.5px, -1.5px); }
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: -0.015em;
+  color: var(--ink-45);
+  text-wrap: balance;
+}
+
+/* The closing line, one blank line below the lede. Pure white with a halo so
+   it lands harder than the paragraph above it. The glow replaces .shell's dark
+   drop shadow, which would otherwise cancel it out. */
+.artist {
+  margin-top: 1.3em;
   color: var(--ink);
-  /* Halo so the pure white lifts off the artwork. Overrides .shell's dark
-     drop shadow, which would otherwise cancel the glow out. */
   text-shadow:
     0 0 2px  rgba(255, 255, 255, 0.55),
     0 0 10px rgba(255, 255, 255, 0.45),
     0 0 26px rgba(255, 255, 255, 0.32),
     0 0 60px rgba(255, 255, 255, 0.20);
-  text-wrap: balance;
-}
-
-/* The closing line, one blank line below the lede. */
-.artist {
-  margin-top: 1.3em;
 }
 
 /* ── Meta grid ─────────────────────────────────────────── */

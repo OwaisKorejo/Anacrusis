@@ -15,8 +15,18 @@ app.use(
   })
 );
 
-// One page. Everything else lands on it.
-app.use((_req, res) => {
+// One page, so unknown routes land on it — but only real navigations. A missing
+// asset, or /_vercel/* in local dev, must 404 rather than get HTML back with a
+// 200: handing index.html to a <script src> throws a syntax error in console.
+const isNavigation = (req) =>
+  req.method === "GET" &&
+  !req.path.startsWith("/_vercel") &&
+  !path.extname(req.path);
+
+app.use((req, res) => {
+  if (!isNavigation(req)) {
+    return res.status(404).type("text/plain").send("Not found");
+  }
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
